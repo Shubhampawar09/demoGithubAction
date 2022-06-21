@@ -27,8 +27,8 @@ Scenario Outline: update pet details by id
  }
 
     """
- * def randomInt = random_Integer(3)
- * def randomstr = randomString(5)
+ #* def randomInt = random_Integer(3)
+ #* def randomstr = randomString(5)
 
  * def requestUpdate =
   """
