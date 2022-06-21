@@ -33,12 +33,12 @@ Scenario Outline: update pet details by id
  * def requestUpdate =
   """
 {
-   "id":345,
+   "id":'#(random_Integer(3))',
    "category":{
       "id":0,
       "name":'<categoryname>'
    },
-   "name":"ssffujh",
+   "name":"#(randomString(5))",
    "photoUrls":[
       "string"
    ],
