@@ -1,0 +1,71 @@
+<testsuite failures="0"
+           name="features/update.feature"
+           skipped="0"
+           tests="2"
+           time="7.64828">
+   <testcase classname="features.update"
+             name="update pet details by id"
+             time="3.823916">
+      <system-out>* def random_Integer = .................................................... passed
+* def randomString = ...................................................... passed
+* def randomInt = random_Integer(3) ....................................... passed
+* def randomstr = randomString(5) ......................................... passed
+* def requestUpdate = ..................................................... passed
+Given url baseurl ......................................................... passed
+And request requestUpdate ................................................. passed
+When method POST .......................................................... passed
+Then status 200 ........................................................... passed
+* print response .......................................................... passed
+* def respId = response.id ................................................ passed
+* print respId ............................................................ passed
+* def query = {name : 'abcd' , status : 'unavailable'} .................... passed
+Given url baseurl ......................................................... passed
+And path respId ........................................................... passed
+And form fields query ..................................................... passed
+When method POST .......................................................... passed
+* print response .......................................................... passed
+Then status 200 ........................................................... passed</system-out>
+   </testcase>
+   <testcase classname="features.update"
+             name="update pet details by id"
+             time="3.824364">
+      <system-out>* def random_Integer = .................................................... passed
+* def randomString = ...................................................... passed
+* def randomInt = random_Integer(3) ....................................... passed
+* def randomstr = randomString(5) ......................................... passed
+* def requestUpdate = ..................................................... passed
+Given url baseurl ......................................................... passed
+And request requestUpdate ................................................. passed
+When method POST .......................................................... passed
+Then status 200 ........................................................... passed
+* print response .......................................................... passed
+* def respId = response.id ................................................ passed
+* print respId ............................................................ passed
+* def query = {name : 'abcd' , status : 'unavailable'} .................... passed
+Given url baseurl ......................................................... passed
+And path respId ........................................................... passed
+And form fields query ..................................................... passed
+When method POST .......................................................... passed
+* print response .......................................................... passed
+Then status 200 ........................................................... passed
+* def random_Integer = .................................................... passed
+* def randomString = ...................................................... passed
+* def randomInt = random_Integer(3) ....................................... passed
+* def randomstr = randomString(5) ......................................... passed
+* def requestUpdate = ..................................................... passed
+Given url baseurl ......................................................... passed
+And request requestUpdate ................................................. passed
+When method POST .......................................................... passed
+Then status 200 ........................................................... passed
+* print response .......................................................... passed
+* def respId = response.id ................................................ passed
+* print respId ............................................................ passed
+* def query = {name : 'test' , status : 'pending'} ........................ passed
+Given url baseurl ......................................................... passed
+And path respId ........................................................... passed
+And form fields query ..................................................... passed
+When method POST .......................................................... passed
+* print response .......................................................... passed
+Then status 200 ........................................................... passed</system-out>
+   </testcase>
+</testsuite>
