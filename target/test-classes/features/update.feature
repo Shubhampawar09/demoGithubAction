@@ -27,18 +27,18 @@ Scenario Outline: update pet details by id
  }
 
     """
- * def randomInt = random_Integer(3)
- * def randomstr = randomString(5)
+ #* def randomInt = random_Integer(3)
+ #* def randomstr = randomString(5)
 
  * def requestUpdate =
   """
 {
-   "id":'#(randomInt)',
+   "id":'#(random_Integer(3))',
    "category":{
       "id":0,
       "name":'<categoryname>'
    },
-   "name":"#(randomstr)",
+   "name":"#(randomString(5))",
    "photoUrls":[
       "string"
    ],
