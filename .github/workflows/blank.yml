@@ -1,10 +1,10 @@
 name: karate demo
 
 on:
-  schedule:
-    - cron: '*/5 * * * *'
   push:
     branches: [main]
+  schedule:
+    - cron: '*/5 * * * *'
 
 jobs:
   build:
