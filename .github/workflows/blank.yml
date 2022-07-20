@@ -3,8 +3,6 @@ name: karate demo
 on:
   push:
     branches: [main]
-  schedule:
-    - cron: ''
 
 jobs:
   build:
