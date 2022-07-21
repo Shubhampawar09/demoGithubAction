@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: windows-latest
     outputs:
-      output1: ${{ steps.contents.outputs.data }}
+      output1: ${{ steps.contents.outputs.test }}
   
     steps:
       - uses: actions/checkout@v1
@@ -25,10 +25,18 @@ jobs:
       
       - name: Read Text File
         id: contents
-        run: |
-         contents=$( cat hello.txt )
-         echo "::set-output name=data::$contents"
-   
+        uses: juliangruber/read-file-action@v1
+        with:
+         path: ./target/surefire-reports/results-json.txt
+         
+      - name: Echo results-json.txt
+        run: echo "${{ steps.contents.outputs.content }}"
+         
+      - name: Echo results-json.txt
+        run: echo "::set-output name=test::steps.contents.outputs.content"
+       
+     
+        
   
   display:
      runs-on: windows-latest
