@@ -29,6 +29,15 @@ jobs:
       - name: Run command
         run: mvn clean test "-DconfigPath=qa.yaml" "-Dtags=@updatePetDetailsById"
      
+     
+        
+  display:
+     runs-on: windows-latest
+     needs: [build]
+     env:
+      data: steps.package.outputs.content
+      
+     steps:
       - name: Read results-json.txt
         id: package
         uses: juliangruber/read-file-action@v1
@@ -37,12 +46,8 @@ jobs:
           
       - name: Echo results-json.txt
         run: echo "${{ steps.package.outputs.content }}"
-        
-  display:
-     runs-on: windows-latest
-     needs: build
-     steps:
-      - run: echo "${{needs.build.steps.outputs.output1}}"
      
-
+      - name: Read enviornment variable
+        run: echo "$data"
+       
  
