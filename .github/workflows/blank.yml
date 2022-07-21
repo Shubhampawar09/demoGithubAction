@@ -27,7 +27,7 @@ jobs:
         id: contents
         run: |
          contents=$( cat results-json.txt )
-         echo "::set-output name=data::$contents"
+         echo "::set-output name=data::contents"
    
   
   display:
