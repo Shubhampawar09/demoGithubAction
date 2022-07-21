@@ -21,6 +21,7 @@ jobs:
   
   read:
     runs-on: windows-latest
+    needs: build
     
     steps:
       - name: Read results-json.txt
