@@ -18,3 +18,11 @@ jobs:
         run: mvn -B package --file pom.xml
       - name: Run command
         run: mvn clean test "-DconfigPath=qa.yaml" "-Dtags=@updatePetDetailsById"
+        
+      - name: Read results-json.txt
+        id: package
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./target/surefire-reports/results-json.txt
+      - name: Echo results-json.txt
+        run: echo "${{ steps.package.outputs.content }}"
