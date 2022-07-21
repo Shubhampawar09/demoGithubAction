@@ -26,8 +26,8 @@ jobs:
       - name: Read Text File
         id: contents
         run: |
-         contents=$( cat results-json.txt )
-         echo "::set-output name=data::contents"
+         contents=$( cat hello.txt )
+         echo "::set-output name=data::$contents"
    
   
   display:
