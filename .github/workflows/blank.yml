@@ -7,6 +7,8 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    outputs:
+      output1: ${{ steps.step1.outputs.test }}
   
     steps:
       - uses: actions/checkout@v1
@@ -18,20 +20,18 @@ jobs:
         run: mvn -B package --file pom.xml
       - name: Run command
         run: mvn clean test "-DconfigPath=qa.yaml" "-Dtags=@updatePetDetailsById"
+        
+      - id: step1
+        run: echo "::set-output name=test::hello"
       
-      - name: Read results-json.txt
-        id: package
-        uses: juliangruber/read-file-action@v1
-        with:
-          path: ./target/surefire-reports/results-json.txt
+     
   
   display:
-    runs-on: windows-latest
-    needs: build
+     runs-on: windows-latest
+     needs: build
     
-    steps:
-      - name: Echo results-json.txt
-        run: echo "${{ steps.package.outputs.content }}"
-
+     steps:
+      - run: echo ${{needs.build.outputs.output1}}
+     
 
  
