@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: windows-latest
     outputs:
-      output1: ${{ steps.outputs.package }}
+      output1: ${{ steps.package.outputs.test }}
    
   
     steps:
@@ -30,7 +30,7 @@ jobs:
         with:
           path: ./target/surefire-reports/results-json.txt
       - name: Echo results-json.txt
-        run: echo "${{ steps.package.outputs }}"
+        run: echo "${{set-output name=test::steps.package.outputs }}"
   
   display:
      runs-on: windows-latest
