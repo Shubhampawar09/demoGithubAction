@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-
+  
     steps:
       - uses: actions/checkout@v1
       - name: Set up JDK 8
@@ -18,7 +18,11 @@ jobs:
         run: mvn -B package --file pom.xml
       - name: Run command
         run: mvn clean test "-DconfigPath=qa.yaml" "-Dtags=@updatePetDetailsById"
-        
+  
+  read:
+    runs-on: windows-latest
+    
+    steps:
       - name: Read results-json.txt
         id: package
         uses: juliangruber/read-file-action@v1
@@ -26,3 +30,6 @@ jobs:
           path: ./target/surefire-reports/results-json.txt
       - name: Echo results-json.txt
         run: echo "${{ steps.package.outputs.content }}"
+
+
+ 
