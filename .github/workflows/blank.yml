@@ -3,12 +3,15 @@ name: karate demo
 on:
   push:
     branches: [main]
-
+    
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: windows-latest 
+    
     outputs:
       output1: ${{ steps.package.outputs.test }}
+   
+   
    
   
     steps:
@@ -29,17 +32,14 @@ jobs:
         uses: juliangruber/read-file-action@v1
         with:
           path: ./target/surefire-reports/results-json.txt
+          
       - name: Echo results-json.txt
-        run: echo "::set-output name=test::${{ steps.package.outputs.content }}"
+        run: echo "${{ steps.package.outputs.content }}"
         
-      - name: Echo print test  
-        run: echo "$test"
-  
   display:
      runs-on: windows-latest
      needs: build
      steps:
-      - uses: juliangruber/read-file-action@v1
       - run: echo "${{needs.build.steps.outputs.output1}}"
      
 
