@@ -28,22 +28,13 @@ jobs:
         uses: juliangruber/read-file-action@v1
         with:
          path: ./target/surefire-reports/results-json.txt
-         
-      - name: Echo results-json.txt
-        run: echo "${{ steps.contents.outputs.content }}"
-         
-      - name: Echo results-json.txt
-        run: echo "::set-output name=test::steps.contents.outputs.content"
-       
-     
-        
+         run: echo "::set-output name=test::$contents"
   
   display:
      runs-on: windows-latest
      needs: build
-    
      steps:
-      - run: echo ${{needs.build.outputs.output1}}
+      - run: echo "${{needs.build.outputs.output1}}"
      
 
  
