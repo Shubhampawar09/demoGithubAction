@@ -31,11 +31,15 @@ jobs:
           path: ./target/surefire-reports/results-json.txt
       - name: Echo results-json.txt
         run: echo "::set-output name=test::${{ steps.package.outputs.content }}"
+        
+      - name: Echo print test  
+        run: echo "$test"
   
   display:
      runs-on: windows-latest
      needs: build
      steps:
+      - uses: juliangruber/read-file-action@v1
       - run: echo "${{needs.build.steps.outputs.output1}}"
      
 
