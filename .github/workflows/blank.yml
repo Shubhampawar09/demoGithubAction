@@ -9,8 +9,7 @@ jobs:
     runs-on: windows-latest
     outputs:
       output1: ${{ steps.contents.outputs.packageJson }}
-       $resultfile= 'result-json.txt'
-       $resultpath=(./target/surefire-reports -Filter $resultfile).FullName
+   
   
     steps:
       - uses: actions/checkout@v1
@@ -25,12 +24,13 @@ jobs:
       - name: Run command
         run: mvn clean test "-DconfigPath=qa.yaml" "-Dtags=@updatePetDetailsById"
      
-      - name: Read Text File
-        id: contents
-         content=`cat ./target/surefire-reports/results-json.txt`
-         echo ::set-output name=packageJson::$content
-      - run: |
-          echo ${{fromJson(steps.contents.outputs.packageJson).version}}   
+      - name: Read results-json.txt
+        id: package
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./target/surefire-reports/results-json.txt
+      - name: Echo results-json.txt
+        run: echo "${{ steps.package.outputs.content }}"
   
   display:
      runs-on: windows-latest
