@@ -31,7 +31,6 @@ jobs:
 
       - id: step1
         run: echo "::set-output name=test::${{ steps.package.outputs.content }}"
-      
   
   display:
      runs-on: windows-latest
