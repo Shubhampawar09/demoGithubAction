@@ -53,7 +53,7 @@ jobs:
     runs-on: windows-latest 
     needs: build
     steps:
-     - run: echo ${{needs.build.outputs.output1}}
+     - run: echo ${{needs.build.package.outputs.data}}
 
                 
         
