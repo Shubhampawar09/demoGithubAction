@@ -45,6 +45,7 @@ jobs:
          
       - name: store in a variable
         id: package
+        run: |
          echo "::set-output name=data::$testFailures"
        
          
