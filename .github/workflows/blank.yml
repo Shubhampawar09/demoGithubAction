@@ -39,6 +39,17 @@ jobs:
          echo "$testFailures"
          }
          
+  display:
+    runs-on: windows-latest 
+    needs: [build]
+    
+  
+    steps:
+      - uses: actions/checkout@v1
+      - name: Read Parsed value
+        run: |
+         echo "$testFailures"
+       
         
   
   
