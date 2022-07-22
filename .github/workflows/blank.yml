@@ -53,7 +53,7 @@ jobs:
     needs: build
     steps:
      - run: |
-          echo ${{ needs.build.outputs.firstword }}
+          echo ${{ needs.build.outputs.output1 }}
           echo "Hello"
 
                 
