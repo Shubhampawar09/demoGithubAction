@@ -33,7 +33,7 @@ jobs:
          $resultPath = './target/surefire-reports/results-json.txt'
          echo = "$resultPath"
          $resultJson = Get-Content $resultPath | ConvertFrom-Json -Depth 4
-         $testFailures = $resultJson.failed
+         $testFailures = $resultJson.passed
          echo "testFailures=$testFailures" | out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
          if(($resultPath) && ($testFailures -ge 0)){
          echo "$testFailures"
