@@ -57,7 +57,7 @@ jobs:
     steps:
       - name: Read Parsed value
         run: |
-         echo "${{ steps.package.outputs.output1 }}"
+         echo "${{ steps.package.outputs.data }}"
        
         
   
