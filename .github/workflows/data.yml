@@ -1,11 +1,15 @@
 name: Read another yaml demo
 
+on:
+ push:
+    branches: [main]
+ 
 jobs:
- reusable_workflow_job:
-   runs-on: windows-latest 
-   
+  
+ display:
+   runs-on: windows-latest  
    steps:
-    - uses: ./.github/workflows/blank.yml@main
-    - run: |
-          echo ${{ build.package.outputs.data }}
-          echo "Hello"
+        - uses: ./.github/workflows/blank.yml@main
+        - run: |
+           echo ${{ jobs.build.package.data }}
+           echo "Hello"
