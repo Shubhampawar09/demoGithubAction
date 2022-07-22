@@ -51,12 +51,9 @@ jobs:
          
    display:
     runs-on: windows-latest 
-    needs: [build]
-    
-  
+    needs: build
     steps:
-     - name: Read the variable
-     - run: echo ${{ needs.build.outputs.output1 }}
+     - run: echo ${{needs.build.outputs.output1}}
 
                 
         
