@@ -1,10 +1,6 @@
 name: karate demo
 
 on:
-  push:
-    branches: [main]
-  schedule:
-   - cron: "*/2 * * * *"
   workflow_call:
    outputs:
      firstword:
@@ -48,14 +44,7 @@ jobs:
         run: |
          echo "::set-output name=data::$testFailures"
          
-   display:
-    runs-on: windows-latest 
-    needs: build
-    steps:
-     - run: |
-          echo ${{ needs.build.outputs.firstword }}
-          echo "Hello"
-
+   
                 
         
   
