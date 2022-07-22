@@ -1,18 +1,20 @@
 name: karate demo
 
 on:
-  workflow_call:
-   outputs:
-     firstword:
-        description: "The first output string"
-        value: ${{jobs.build.outputs.output1}} 
+ push:
+   branches: [main]  
+ 
+ schedule:
+   - cron: "*/2 * * * *"
          
 jobs:
    
    build:
     runs-on: windows-latest 
+    
     outputs:
      output1: ${{steps.package.outputs.data}}
+     
     steps:
       - uses: actions/checkout@v1
       - name: Set up JDK 8
@@ -43,7 +45,7 @@ jobs:
         id: package
         run: |
          echo "::set-output name=data::$testFailures"
-         
+         echo {{$data}}
    
                 
         
