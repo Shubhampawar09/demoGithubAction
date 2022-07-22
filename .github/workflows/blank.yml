@@ -55,7 +55,6 @@ jobs:
     
   
     steps:
-      - name: Read Parsed value
       - run: echo ${{ needs.build.outputs.output1 }}
 
                 
