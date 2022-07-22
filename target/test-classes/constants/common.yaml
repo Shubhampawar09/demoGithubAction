@@ -1,0 +1,7 @@
+endPoints:
+  sample:
+    get: users?page=2
+    post: users
+
+  getPetById:
+    get: 2
