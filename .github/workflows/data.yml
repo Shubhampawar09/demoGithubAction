@@ -1,0 +1,11 @@
+name: Read another yaml demo
+
+jobs:
+ reusable_workflow_job:
+   runs-on: windows-latest 
+   
+   steps:
+    - uses: ./.github/workflows/blank.yml@main
+    - run: |
+          echo ${{ build.package.outputs.data }}
+          echo "Hello"
