@@ -5,17 +5,17 @@ on:
     branches: [main]
   schedule:
    - cron: "*/2 * * * *"
-   
+  workflow_call:
+   outputs:
+    description:
+     value: ${{jobs.build.outputs.output1}} 
     
 jobs:
    
    build:
     runs-on: windows-latest 
- 
-    
     outputs:
-      output1: ${{ steps.package.outputs.data }}
- 
+     output1: ${{steps.package.outputs.data}}
     steps:
       - uses: actions/checkout@v1
       - name: Set up JDK 8
@@ -41,22 +41,17 @@ jobs:
          if(($resultPath) && ($testFailures -ge 0)){
          echo "$testFailures"
          }
-         
-         
+            
       - name: store in a variable
         id: package
         run: |
          echo "::set-output name=data::$testFailures"
-      
-      - name: Echo outputs
-        run: echo ${{steps.package.outputs.data}}
-       
          
    display:
     runs-on: windows-latest 
     needs: build
     steps:
-     - run: echo ${{needs.build.outputs.data}}
+     - run: echo ${{needs.build.outputs.description}}
 
                 
         
