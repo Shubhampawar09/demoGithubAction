@@ -14,7 +14,7 @@ jobs:
  
     
     outputs:
-      output1: ${{ steps.package.outputs.data }}
+      output1: ${{ steps.package.data }}
  
     steps:
       - uses: actions/checkout@v1
@@ -53,7 +53,7 @@ jobs:
     runs-on: windows-latest 
     needs: build
     steps:
-     - run: echo ${{needs.build.package.outputs.data}}
+     - run: echo ${{needs.build.outputs.output1}}
 
                 
         
