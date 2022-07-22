@@ -27,7 +27,7 @@ jobs:
         run: mvn clean test "-DconfigPath=qa.yaml" "-Dtags=@updatePetDetailsById"
      
       - name: Pare Integration Test Results
-        id: Parse Result
+        id: ParseResult
         run: |
          $resultsFile = 'results-json.txt'
          $resultPath = './target/surefire-reports/results-json.txt'
