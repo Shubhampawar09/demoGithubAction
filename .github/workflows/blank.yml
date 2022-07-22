@@ -45,7 +45,7 @@ jobs:
         id: package
         run: |
          echo "::set-output name=data::$testFailures"
-         echo ${{data}}
+       
    
                 
         
