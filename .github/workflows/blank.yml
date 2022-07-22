@@ -14,7 +14,7 @@ jobs:
  
     
     outputs:
-      output1: ${{ steps.package.data }}
+      output1: ${{ steps.package.outputs.data }}
  
     steps:
       - uses: actions/checkout@v1
@@ -47,13 +47,16 @@ jobs:
         id: package
         run: |
          echo "::set-output name=data::$testFailures"
+      
+      - name: Echo outputs
+        run: echo ${{needs.build.outputs.data}}
        
          
    display:
     runs-on: windows-latest 
     needs: build
     steps:
-     - run: echo ${{needs.build.outputs.output1}}
+     - run: echo ${{needs.build.outputs.data}}
 
                 
         
