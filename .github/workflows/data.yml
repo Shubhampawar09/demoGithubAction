@@ -9,7 +9,7 @@ jobs:
  display:
    runs-on: windows-latest  
    steps:
-        - uses: ./.github/workflows/blank.yml@main
+        - uses: ./.github/workflows/blank.yml
         - run: |
            echo ${{ jobs.build.package.data }}
            echo "Hello"
