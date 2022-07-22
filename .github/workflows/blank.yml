@@ -37,7 +37,7 @@ jobs:
          if(($resultPath) && ($testFailures -ge 1)){
          echo "$testFailures"
          Write-Output "`n"
-         Write-Error "Due to ($testFailures) Failed Tests, the workflow is exiting and a Jira Bug is being created.`n" "
+         Write-Error "Due to ($testFailures) Failed Tests, the workflow is exiting and a Jira Bug is being created.`n"
          exit 1
          }
         
