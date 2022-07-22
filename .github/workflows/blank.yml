@@ -34,7 +34,7 @@ jobs:
          $resultJson = Get-Content $resultPath | ConvertFrom-Json -Depth 4
          $testFailures = $resultJson.failed
          echo "testFailures=$testFailures" | out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
-         if(($resultPath) -and ($testFailures -ge 1)){
+         if(($resultPath) _and ($testFailures -ge 1)){
          Write-Output "`n"
          Write-Error "Due to ($testFailures) Failed Tests, the workflow is exiting and a Jira Bug is being created.`n" "
          exit 1
