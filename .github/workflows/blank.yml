@@ -34,7 +34,7 @@ jobs:
         id: ParseResult
         run: |
          $resultsFile = 'results-json.txt'
-         $resultPath = './results-json.txt'
+         $resultPath = (gci -recurse ./target/surefire-reports/ -Filter $resultsFile).FullName
          echo = "$resultPath"
          $resultJson = Get-Content $resultPath | ConvertFrom-Json -Depth 4
          $testFailures = $resultJson.passed
