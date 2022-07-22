@@ -44,7 +44,7 @@ jobs:
          
          
       - name: store in a variable
-        id: package
+      - id: package
         run: |
          echo "::set-output name=data::$testFailures"
        
@@ -56,9 +56,9 @@ jobs:
   
     steps:
       - name: Read Parsed value
-        run: |
-         echo "${{ steps.package.outputs.data }}"
-       
+      - run: echo ${{ needs.build.outputs.output1 }}
+
+                
         
   
   
