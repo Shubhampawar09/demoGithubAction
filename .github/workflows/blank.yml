@@ -5,10 +5,14 @@ on:
     branches: [main]
   schedule:
    - cron: "*/2 * * * *"
+   
     
 jobs:
-  build:
+   
+   build:
     runs-on: windows-latest 
+    env:
+      testFailures: resultJson.passed
     
     outputs:
       output1: ${{ steps.package.outputs.test }}
@@ -39,13 +43,12 @@ jobs:
          echo "$testFailures"
          }
          
-  display:
+   display:
     runs-on: windows-latest 
     needs: [build]
     
   
     steps:
-      - uses: actions/checkout@v1
       - name: Read Parsed value
         run: |
          echo "$testFailures"
